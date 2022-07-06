@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
@@ -27,6 +28,9 @@ public class SummaryActivityFragment extends Fragment {
     ImageView selectMountain;
 
     TextView dailyGoal;
+    TextView pypMountain;
+
+    private RadioButton radioButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -42,6 +46,7 @@ public class SummaryActivityFragment extends Fragment {
         editDailyGoal = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.dailyGoalButton);
         dailyGoal = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.dailyGoal);
         selectMountain = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.selectMountain);
+        pypMountain = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.pypMountain);
 
         editDailyGoal();
         chooseMountain();
@@ -138,6 +143,41 @@ public class SummaryActivityFragment extends Fragment {
                 builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        // What happens when you select a mountain as your goal?
+                        int selectedId = picked_peak.getCheckedRadioButtonId();
+                        radioButton = (RadioButton) picked_peak.findViewById(selectedId);
+
+                        //String mnt_name = (String) radioButton.getText();
+                        String mnt_name;
+
+                        switch(selectedId) {
+                            case R.id.radioDiamondHead: mnt_name = "DIAMOND HEAD";
+                                break;
+                            case R.id.radioBurnabyMountain: mnt_name = "BURNABY MOUNTAIN";
+                                break;
+                            case R.id.radioStawamusChief: mnt_name = "STAWAMUS CHIEF";
+                                break;
+                            case R.id.radioTableMountain: mnt_name = "TABLE MOUNTAIN";
+                                break;
+                            case R.id.radioGrouseMountain: mnt_name = "GROUSE MOUNTAIN";
+                                break;
+                            case R.id.radioCypressBowl: mnt_name = "CYPRESS BOWL";
+                                break;
+                            case R.id.radioMountOlympus: mnt_name = "MT. OLYMPUS";
+                                break;
+                            case R.id.radioMountStHelens: mnt_name = "MOUNT ST. HELENS";
+                                break;
+                            case R.id.radioMountFuji: mnt_name = "MT. FUJI";
+                                break;
+                            case R.id.radioMountKilimanjaro: mnt_name = "MT. KILIMANJARO";
+                                break;
+                            case R.id.radioMountEverest: mnt_name = "MT. EVEREST";
+                                break;
+                            default:
+                                mnt_name = "Uh Oh, kaput.";
+                        }
+
+                        pypMountain.setText(mnt_name);
 
 
 
