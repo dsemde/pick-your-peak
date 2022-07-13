@@ -70,7 +70,7 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
 
     TextView dailyGoal;
     TextView challengeTotal;
-
+/*
     ImageView startDot;
     ImageView diamondHead;
     ImageView burnabyMountain;
@@ -95,6 +95,7 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
     TextView textMountFuji;
     TextView textMountKilimanjaro;
     TextView textMountEverest;
+*/
 
     ProgressBar pb;
     ProgressBar summary_progress;
@@ -129,7 +130,7 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
 
         setChallengeProgress();
 
-        setPeakVisibility();
+        //setPeakVisibility();
 
         getChallengeTotal();
 
@@ -203,6 +204,7 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
     }
 
     public void setChallengeProgress(){
+        // TODO: add mountain step conversions and add conditional to change totals
         double mtEverest = 47189.28;
         double currentProgress = 0;
         double relativeProgress;
@@ -227,7 +229,7 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
         relativeProgress = round((currentProgress/mtEverest)*100, 2);
         return relativeProgress;
     }
-
+/*
     public void setPeakVisibility() {
         double progress = getChallengeProgress();
 
@@ -307,7 +309,7 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
         }
 
     }
-
+*/
     public void setDailyGoal(){
         dailyGoal.setText("Personal goal: " + daily_goal + " flights per day");
     }
@@ -348,7 +350,7 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
         weekThreeMetersView.setText(String.valueOf(weekThreeMeters));
         weekFourMetersView = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.weekFourMeters);
         weekFourMetersView.setText(String.valueOf(weekFourMeters));
-
+/*
         startDot = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.startDot);
         diamondHead = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.diamondHead);
         burnabyMountain = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.burnabyMountain);
@@ -373,7 +375,7 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
         textMountFuji = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.textMountFuji);
         textMountKilimanjaro = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.textMountKilimanjaro);
         textMountEverest = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.textMountEverest);
-
+*/
         challengeTotal = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.challengeTotal);
 
         dailyGoal = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.dailyGoal);

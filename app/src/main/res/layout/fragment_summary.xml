@@ -42,19 +42,19 @@
         app:layout_constraintBottom_toTopOf="@+id/guidelineSummary"
         app:layout_constraintStart_toStartOf="parent" />
 
+
     <ProgressBar
         android:id="@+id/overallProgressBar"
-        android:layout_width="336dp"
-        android:layout_height="6dp"
         style="?android:progressBarStyleHorizontal"
-        android:progressDrawable="@drawable/gradient_progress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/guidelineSummary"
-        android:layout_marginBottom="127dp"
-        android:layout_marginEnd="107dp"
+        android:layout_width="350dp"
+        android:layout_height="10dp"
+        android:layout_marginBottom="68dp"
+        android:progress="100"
         android:progressBackgroundTint="@color/transparent"
-        android:rotation="-47.25"
-        android:progress="100" />
+        android:progressDrawable="@drawable/gradient_progress"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineSummary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineSummary"
@@ -127,6 +127,7 @@
     -->
 
 <!-- MOUNTAINS -->
+    <!--
     <ImageView
         android:id="@+id/startDot"
         android:visibility="visible"
@@ -280,8 +281,10 @@
         android:tint="#FD9603"
         app:layout_constraintBottom_toTopOf="@+id/guidelineSummary"
         app:layout_constraintStart_toStartOf="parent" />
+-->
 
 <!-- EVEREST MOUNTAIN TEXT -->
+    <!--
     <TextView
         android:id="@+id/textDiamondHead"
         android:visibility="invisible"
@@ -413,6 +416,7 @@
         android:fontFamily="@font/robotolight"
         android:layout_marginBottom="243dp"
         android:text="@string/mount_everest"/>
+-->
 
     <androidx.cardview.widget.CardView
         android:id="@+id/weekOneCard"
