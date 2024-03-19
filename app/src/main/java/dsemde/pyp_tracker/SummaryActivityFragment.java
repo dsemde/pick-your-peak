@@ -1,6 +1,7 @@
 package dsemde.pyp_tracker;
 
 import static dsemde.pyp_tracker.MainActivityFragment.daily_goal;
+import static dsemde.pyp_tracker.MainActivityFragment.mountain_goal;
 import static dsemde.pyp_tracker.MainActivityFragment.goalMountainSteps;
 
 import android.content.Context;
@@ -148,6 +149,77 @@ public class SummaryActivityFragment extends Fragment {
                 // Step input
                 final RadioGroup picked_peak = viewInflated.findViewById(R.id.mountain_radio);
                 builder.setView(viewInflated);
+
+                // Select radiobutton with pre-selected mountain goal
+                RadioGroup setMountainCheck = picked_peak.findViewById(R.id.mountain_radio);
+                RadioButton setDiamondHead = setMountainCheck.findViewById(R.id.radioDiamondHead);
+                RadioButton setKelownaKnox = setMountainCheck.findViewById(R.id.radioKelownaKnoxMountain);
+                RadioButton setBurnabyMountain = setMountainCheck.findViewById(R.id.radioBurnabyMountain);
+                RadioButton setStawamusChief = setMountainCheck.findViewById(R.id.radioStawamusChief);
+                RadioButton setMountBoucherie = setMountainCheck.findViewById(R.id.radioMountBoucherie);
+                RadioButton setSpionKop = setMountainCheck.findViewById(R.id.radioSpionKop);
+                RadioButton setTableMountain = setMountainCheck.findViewById(R.id.radioTableMountain);
+                RadioButton setGrouseMountain = setMountainCheck.findViewById(R.id.radioGrouseMountain);
+                RadioButton setCypressBowl = setMountainCheck.findViewById(R.id.radioCypressBowl);
+                RadioButton setSilverstar = setMountainCheck.findViewById(R.id.radioSilverstar);
+                RadioButton setMountOlympus = setMountainCheck.findViewById(R.id.radioMountOlympus);
+                RadioButton setBigWhite = setMountainCheck.findViewById(R.id.radioBigWhite);
+                RadioButton setMountStHelens = setMountainCheck.findViewById(R.id.radioMountStHelens);
+                RadioButton setMountFuji = setMountainCheck.findViewById(R.id.radioMountFuji);
+                RadioButton setMountKilimanjaro = setMountainCheck.findViewById(R.id.radioMountKilimanjaro);
+                RadioButton setMountEverest = setMountainCheck.findViewById(R.id.radioMountEverest);
+
+
+                switch (mountain_goal) {
+                    case "Diamond Head (232 m)":
+                         setDiamondHead.setChecked(true);
+                        break;
+                    case "Kelowna Knox Mountain (300 m)":
+                        setKelownaKnox.setChecked(true);
+                        break;
+                    case "Burnaby Mountain (370 m)":
+                        setBurnabyMountain.setChecked(true);
+                        break;
+                    case "Stawamus Chief (700 m)":
+                        setStawamusChief.setChecked(true);
+                        break;
+                    case "Mount Boucherie (758 m)":
+                        setMountBoucherie.setChecked(true);
+                        break;
+                    case "Spion Kop (897 m)":
+                        setSpionKop.setChecked(true);
+                        break;
+                    case "Table Mountain (1085 m)":
+                        setTableMountain.setChecked(true);
+                        break;
+                    case "Grouse Mountain (1231 m)":
+                        setGrouseMountain.setChecked(true);
+                        break;
+                    case "Cypress Bowl (1432 m)":
+                        setCypressBowl.setChecked(true);
+                        break;
+                    case "Silverstar (1915 m)":
+                        setSilverstar.setChecked(true);
+                        break;
+                    case "Mount Olympus (1950 m)":
+                        setMountOlympus.setChecked(true);
+                        break;
+                    case "Big White (2319 m)":
+                        setBigWhite.setChecked(true);
+                        break;
+                    case "Mount St. Helens (2550 m)":
+                        setMountStHelens.setChecked(true);
+                        break;
+                    case "Mount Fuji (3776 m)":
+                        setMountFuji.setChecked(true);
+                        break;
+                    case "Mount Kilimanjaro (5895 m)":
+                        setMountKilimanjaro.setChecked(true);
+                        break;
+                    case "Mount Everest (8848 m)":
+                        setMountEverest.setChecked(true);
+                        break;
+                }
 
                 // OK Button
                 builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {

@@ -28,6 +28,7 @@
 
         <RadioButton
             android:id="@+id/radioDiamondHead"
+            android:checked="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/robotolight"
@@ -35,6 +36,7 @@
 
         <RadioButton
             android:id="@+id/radioKelownaKnoxMountain"
+            android:checked="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/robotolight"
@@ -42,6 +44,7 @@
 
         <RadioButton
             android:id="@+id/radioBurnabyMountain"
+            android:checked="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/robotolight"
@@ -49,6 +52,7 @@
 
         <RadioButton
             android:id="@+id/radioStawamusChief"
+            android:checked="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/robotolight"
@@ -56,6 +60,7 @@
 
         <RadioButton
             android:id="@+id/radioMountBoucherie"
+            android:checked="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/robotolight"
@@ -63,6 +68,7 @@
 
         <RadioButton
             android:id="@+id/radioSpionKop"
+            android:checked="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/robotolight"
@@ -70,6 +76,7 @@
 
         <RadioButton
             android:id="@+id/radioTableMountain"
+            android:checked="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/robotolight"
@@ -77,6 +84,7 @@
 
         <RadioButton
             android:id="@+id/radioGrouseMountain"
+            android:checked="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/robotolight"
@@ -84,6 +92,7 @@
 
         <RadioButton
             android:id="@+id/radioCypressBowl"
+            android:checked="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/robotolight"
@@ -91,6 +100,7 @@
 
         <RadioButton
             android:id="@+id/radioSilverstar"
+            android:checked="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/robotolight"
@@ -98,6 +108,7 @@
 
         <RadioButton
             android:id="@+id/radioMountOlympus"
+            android:checked="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/robotolight"
@@ -105,6 +116,7 @@
 
         <RadioButton
             android:id="@+id/radioBigWhite"
+            android:checked="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/robotolight"
@@ -112,6 +124,7 @@
 
         <RadioButton
             android:id="@+id/radioMountStHelens"
+            android:checked="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/robotolight"
@@ -119,6 +132,7 @@
 
         <RadioButton
             android:id="@+id/radioMountFuji"
+            android:checked="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/robotolight"
@@ -126,6 +140,7 @@
 
         <RadioButton
             android:id="@+id/radioMountKilimanjaro"
+            android:checked="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/robotolight"
@@ -133,6 +148,7 @@
 
         <RadioButton
             android:id="@+id/radioMountEverest"
+            android:checked="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/robotolight"
