@@ -1,21 +1,24 @@
 package dsemde.pyp_tracker;
 
+import static dsemde.pyp_tracker.MainActivityFragment.daily_goal;
+import static dsemde.pyp_tracker.MainActivityFragment.goalMountainSteps;
+
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.appcompat.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import static dsemde.pyp_tracker.MainActivityFragment.daily_goal;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
 
 public class SummaryActivityFragment extends Fragment {
 
@@ -27,6 +30,8 @@ public class SummaryActivityFragment extends Fragment {
     ImageView selectMountain;
 
     TextView dailyGoal;
+
+    String selectedText;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -114,8 +119,18 @@ public class SummaryActivityFragment extends Fragment {
         SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor editor_goal = sharedPref.edit();
 
-        editor_goal.putString("daily goal", Double.toString(daily_goal));
+        editor_goal.putString("daily_goal", Double.toString(daily_goal));
+
         editor_goal.commit();
+    }
+
+    private void saveMountainGoal(){
+        SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor mountain_goal = sharedPref.edit();
+
+        mountain_goal.putString("mountain_goal", selectedText);
+
+        mountain_goal.commit();
     }
 
     public void setDailyGoal(){
@@ -139,10 +154,69 @@ public class SummaryActivityFragment extends Fragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
+                        int selectedId = picked_peak.getCheckedRadioButtonId();
+                        RadioButton radioButton = (RadioButton) picked_peak.findViewById(selectedId);
+
+                        selectedText = (String) radioButton.getText();
+
+                        TextView mountainView = (TextView) getView().findViewById(R.id.pypMountain);
+                        mountainView.setText(selectedText);
 
 
+                        // Change mountain goal
+                        switch (selectedText) {
+                            case "Diamond Head (232 m)":
+                                goalMountainSteps = 1160;
+                                break;
+                            case "Kelowna Knox Mountain (300 m)":
+                                goalMountainSteps = 1500;
+                                break;
+                            case "Burnaby Mountain (370 m)":
+                                goalMountainSteps = 1850;
+                                break;
+                            case "Stawamus Chief (700 m)":
+                                goalMountainSteps = 3500;
+                                break;
+                            case "Mount Boucherie (758 m)":
+                                goalMountainSteps = 3790;
+                                break;
+                            case "Spion Kop (897 m)":
+                                goalMountainSteps = 4485;
+                                break;
+                            case "Table Mountain (1085 m)":
+                                goalMountainSteps = 5425;
+                                break;
+                            case "Grouse Mountain (1231 m)":
+                                goalMountainSteps = 6155;
+                                break;
+                            case "Cypress Bowl (1432 m)":
+                                goalMountainSteps = 7160;
+                                break;
+                            case "Silverstar (1915 m)":
+                                goalMountainSteps = 9575;
+                                break;
+                            case "Mount Olympus (1950 m)":
+                                goalMountainSteps = 9750;
+                                break;
+                            case "Big White (2319 m)":
+                                goalMountainSteps = 11595;
+                                break;
+                            case "Mount St. Helens (2550 m)":
+                                goalMountainSteps = 12750;
+                                break;
+                            case "Mount Fuji (3776 m)":
+                                goalMountainSteps = 18880;
+                                break;
+                            case "Mount Kilimanjaro (5895 m)":
+                                goalMountainSteps = 29475;
+                                break;
+                            case "Mount Everest (8848 m)":
+                                goalMountainSteps = 44240;
+                                break;
+                        }
 
-
+                        MainActivity.setChallengeProgress();
+                        saveMountainGoal();
 
                     }
                 });

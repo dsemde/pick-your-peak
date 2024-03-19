@@ -10,7 +10,7 @@ java
 3. onStart() date ranges in MainActivityFragment.java
 
 build.gradle
-- increment versionCode by one
+- increment versionCode (Module: app) by one
 - set versionName
 
 res/values/strings

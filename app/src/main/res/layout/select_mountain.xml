@@ -34,6 +34,13 @@
             android:text="@string/diamond_head_radio"/>
 
         <RadioButton
+            android:id="@+id/radioKelownaKnoxMountain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/robotolight"
+            android:text="@string/kelowna_knox_mountain_radio"/>
+
+        <RadioButton
             android:id="@+id/radioBurnabyMountain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,6 +53,20 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/robotolight"
             android:text="@string/stawamus_chief_radio"/>
+
+        <RadioButton
+            android:id="@+id/radioMountBoucherie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/robotolight"
+            android:text="@string/mount_boucherie_radio"/>
+
+        <RadioButton
+            android:id="@+id/radioSpionKop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/robotolight"
+            android:text="@string/spion_kop_radio"/>
 
         <RadioButton
             android:id="@+id/radioTableMountain"
@@ -69,6 +90,13 @@
             android:text="@string/cypress_bowl_radio"/>
 
         <RadioButton
+            android:id="@+id/radioSilverstar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/robotolight"
+            android:text="@string/silverstar_radio"/>
+
+        <RadioButton
             android:id="@+id/radioMountOlympus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -76,11 +104,18 @@
             android:text="@string/mount_olympus_radio"/>
 
         <RadioButton
+            android:id="@+id/radioBigWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/robotolight"
+            android:text="@string/big_white_radio"/>
+
+        <RadioButton
             android:id="@+id/radioMountStHelens"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/robotolight"
-            android:text="@string/mount_st_helens_radiol"/>
+            android:text="@string/mount_st_helens_radio"/>
 
         <RadioButton
             android:id="@+id/radioMountFuji"

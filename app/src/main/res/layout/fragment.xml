@@ -94,7 +94,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:backgroundTint="@color/colorPrimary"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@drawable/ic_add_" />
+        app:srcCompat="@drawable/ic_add_"
+        android:contentDescription="Enter number of steps"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/calendarButton"
@@ -104,7 +105,8 @@
         app:layout_constraintStart_toStartOf="parent"
         android:backgroundTint="@color/colorPrimary"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@drawable/ic_date_" />
+        app:srcCompat="@drawable/ic_date_"
+        android:contentDescription="Select date"/>
 
     <ImageView
         android:id="@+id/previous_day"
