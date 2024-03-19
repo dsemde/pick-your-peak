@@ -36,6 +36,7 @@ import java.util.Date;
 import java.util.List;
 
 import static android.content.Context.MODE_PRIVATE;
+// import static dsemde.pyp_tracker.SummaryActivityFragment.goalMountainSteps;
 
 public class MainActivityFragment extends Fragment {
 
@@ -52,6 +53,10 @@ public class MainActivityFragment extends Fragment {
     double daily_total;
     int progress = 0;
     static double daily_goal;
+
+    static String mountain_goal;
+
+    static double goalMountainSteps;
 
     TextView textView1;
     TextView textView2;
@@ -87,8 +92,8 @@ public class MainActivityFragment extends Fragment {
         super.onStart();
 
         try {
-            beginning = df.parse("04-JUL-2022");
-            end = df.parse("01-AUG-2022");
+            beginning = df.parse("06-MAY-2024");
+            end = df.parse("03-JUN-2024");
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -96,6 +101,7 @@ public class MainActivityFragment extends Fragment {
 // ----- LOAD SAVED ARRAY LIST -----
         loadData();
         loadDailyGoal();
+        loadMountainGoal();
 
 // ----- SET VARIABLES -----
         daily_total = totalOutput(mExampleList, sel_date);
@@ -132,9 +138,9 @@ public class MainActivityFragment extends Fragment {
             double flight_total;
             for (int a = 0; a < steps.size(); a++) {
                 if (date.equals(steps.get(a).getText1()))
-                temp_total += steps.get(a).getText2();
+                    temp_total += steps.get(a).getText2();
             }
-            flight_total = round(temp_total / 16.0, 2);
+            flight_total = round(temp_total / 15.0, 2);
             return flight_total;
         } catch (Exception e){
             return 0.0;
@@ -192,9 +198,66 @@ public class MainActivityFragment extends Fragment {
 
     public void loadDailyGoal(){
         SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
-        String temp_daily_goal = sharedPref.getString("daily goal", "3.0");
+        String temp_daily_goal = sharedPref.getString("daily_goal", "3.0");
 
         daily_goal = Double.valueOf(temp_daily_goal);
+    }
+
+    public void loadMountainGoal(){
+        SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+
+        mountain_goal = sharedPref.getString("mountain_goal", "Diamond Head (232 m)");
+
+        switch (mountain_goal) {
+            case "Diamond Head (232 m)":
+                goalMountainSteps = 1160;
+                break;
+            case "Kelowna Knox Mountain (300 m)":
+                goalMountainSteps = 1500;
+                break;
+            case "Burnaby Mountain (370 m)":
+                goalMountainSteps = 1850;
+                break;
+            case "Stawamus Chief (700 m)":
+                goalMountainSteps = 3500;
+                break;
+            case "Mount Boucherie (758 m)":
+                goalMountainSteps = 3790;
+                break;
+            case "Spion Kop (897 m)":
+                goalMountainSteps = 4485;
+                break;
+            case "Table Mountain (1085 m)":
+                goalMountainSteps = 5425;
+                break;
+            case "Grouse Mountain (1231 m)":
+                goalMountainSteps = 6155;
+                break;
+            case "Cypress Bowl (1432 m)":
+                goalMountainSteps = 7160;
+                break;
+            case "Silverstar (1915 m)":
+                goalMountainSteps = 9575;
+                break;
+            case "Mount Olympus (1950 m)":
+                goalMountainSteps = 9750;
+                break;
+            case "Big White (2319 m)":
+                goalMountainSteps = 11595;
+                break;
+            case "Mount St. Helens (2550 m)":
+                goalMountainSteps = 12750;
+                break;
+            case "Mount Fuji (3776 m)":
+                goalMountainSteps = 18880;
+                break;
+            case "Mount Kilimanjaro (5895 m)":
+                goalMountainSteps = 29475;
+                break;
+            case "Mount Everest (8848 m)":
+                goalMountainSteps = 44240;
+                break;
+        }
     }
 
     public int getProgress(List<ExampleItem> steps, String date){
@@ -206,7 +269,7 @@ public class MainActivityFragment extends Fragment {
                 if (date.compareTo(steps.get(a).getText1()) == 0)
                     temp_progress += steps.get(a).getText2();
             }
-            flight_total = round(temp_progress / 16.0, 2);
+            flight_total = round(temp_progress / 15.0, 2);
             daily_progress_int = toInt((flight_total/daily_goal)*100);
             return daily_progress_int;
         } catch (Exception e){

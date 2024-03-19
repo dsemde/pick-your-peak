@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PYP 2022</string>
+    <string name="app_name">PYP 2024</string>
 
     <string name="input_title">Add those steps!</string>
     <string name="edit_title">How many stairs did you really climb?</string>
@@ -28,42 +28,58 @@
     <string name="week_three">Week 3</string>
     <string name="week_four">Week 4</string>
 
-    <string name="diamond_head">Diamond Head (232m)</string>
-    <string name="burnaby_mountain">Burnaby Mountain (370m)</string>
-    <string name="stawamus_chief">Stawamus Chief (700m)</string>
-    <string name="table_mountain">Table Mountain (1085m)</string>
-    <string name="grouse_mountain">Grouse Mountain (1231m)</string>
-    <string name="cypress_bowl">Cypress Bowl (1432m)</string>
-    <string name="mount_olympus">Mt. Olympus (1950m)</string>
-    <string name="mount_st_helens">Mount St. Helens (2550m)</string>
-    <string name="mount_fuji">Mt. Fuji (3776m)</string>
-    <string name="mount_kilimanjaro">Mt. Kilimanjaro (5895m)</string>
-    <string name="mount_everest">Mt. Everest (8848m)</string>
+<!--    <string name="diamond_head">Diamond Head (232 m)</string>-->
+<!--    <string name="kelowna_knox_mountain">Kelowna Knox Mountain (300 m)</string>-->
+<!--    <string name="burnaby_mountain">Burnaby Mountain (370 m)</string>-->
+<!--    <string name="stawamus_chief">Stawamus Chief (700 m)</string>-->
+<!--    <string name="mount_boucherie">Mount Boucherie (758 m)</string>-->
+<!--    <string name="spion_kop">Spion Kop (897 m)</string>-->
+<!--    <string name="table_mountain">Table Mountain (1085 m)</string>-->
+<!--    <string name="grouse_mountain">Grouse Mountain (1231 m)</string>-->
+<!--    <string name="cypress_bowl">Cypress Bowl (1432 m)</string>-->
+<!--    <string name="silverstar">Silverstar (1915 m)</string>-->
+<!--    <string name="mount_olympus">Mt. Olympus (1950 m)</string>-->
+<!--    <string name="big_white">Big White (2319 m)</string>-->
+<!--    <string name="mount_st_helens">Mount St. Helens (2550 m)</string>-->
+<!--    <string name="mount_fuji">Mt. Fuji (3776 m)</string>-->
+<!--    <string name="mount_kilimanjaro">Mt. Kilimanjaro (5895 m)</string>-->
+<!--    <string name="mount_everest">Mt. Everest (8848 m)</string>-->
 
-    <string name="diamond_head_radio">Diamond Head (232m)</string>
-    <string name="burnaby_mountain_radio">Burnaby Mountain (370m)</string>
-    <string name="stawamus_chief_radio">Stawamus Chief (700m)</string>
-    <string name="table_mountain_radio">Table Mountain (1085m)</string>
-    <string name="grouse_mountain_radio">Grouse Mountain (1231m)</string>
-    <string name="cypress_bowl_radio">Cypress Bowl (1432m)</string>
-    <string name="mount_olympus_radio">Mount Olympus (1950m)</string>
-    <string name="mount_st_helens_radiol">Mount St. Helens (2550m)</string>
-    <string name="mount_fuji_radio">Mount Fuji (3776m)</string>
-    <string name="mount_kilimanjaro_radio">Mount Kilimanjaro (5895m)</string>
-    <string name="mount_everest_radio">Mount Everest (8848m)</string>
+    <string name="diamond_head_radio">Diamond Head (232 m)</string>
+    <string name="kelowna_knox_mountain_radio">Kelowna Knox Mountain (300 m)</string>
+    <string name="burnaby_mountain_radio">Burnaby Mountain (370 m)</string>
+    <string name="stawamus_chief_radio">Stawamus Chief (700 m)</string>
+    <string name="mount_boucherie_radio">Mount Boucherie (758 m)</string>
+    <string name="spion_kop_radio">Spion Kop (897 m)</string>
+    <string name="table_mountain_radio">Table Mountain (1085 m)</string>
+    <string name="grouse_mountain_radio">Grouse Mountain (1231 m)</string>
+    <string name="cypress_bowl_radio">Cypress Bowl (1432 m)</string>
+    <string name="silverstar_radio">Silverstar (1915 m)</string>
+    <string name="mount_olympus_radio">Mount Olympus (1950 m)</string>
+    <string name="big_white_radio">Big White (2319 m)</string>
+    <string name="mount_st_helens_radio">Mount St. Helens (2550 m)</string>
+    <string name="mount_fuji_radio">Mount Fuji (3776 m)</string>
+    <string name="mount_kilimanjaro_radio">Mount Kilimanjaro (5895 m)</string>
+    <string name="mount_everest_radio">Mount Everest (8848 m)</string>
 
-    <string name="diamond_head_nm">DIAMOND HEAD</string>
-    <string name="burnaby_mountain_nm">BURNABY MOUNTAIN</string>
-    <string name="stawamus_chief_nm">STAWAMUS CHIEF</string>
-    <string name="table_mountain_nm">TABLE MOUNTAIN</string>
-    <string name="grouse_mountain_nm">GROUSE MOUNTAIN</string>
-    <string name="cypress_bowl_nm">CYPRESS BOWL</string>
-    <string name="mount_olympus_nm">MOUNT OLYMPUS </string>
-    <string name="mount_st_helens_nm">MOUNT ST. HELENS</string>
-    <string name="mount_fuji_nm">MOUNT FUJI</string>
-    <string name="mount_kilimanjaro_nm">MOUNT KILIMANJARO</string>
-    <string name="mount_everest_nm">MOUNT EVEREST</string>
+<!--    <string name="diamond_head_nm">DIAMOND HEAD</string>-->
+<!--    <string name="kelowna_knox_mountain_nm">KELOWNA KNOX MOUNTAIN</string>-->
+<!--    <string name="burnaby_mountain_nm">BURNABY MOUNTAIN</string>-->
+<!--    <string name="stawamus_chief_nm">STAWAMUS CHIEF</string>-->
+<!--    <string name="mount_boucherie_nm">MOUNT BOUCHERIE</string>-->
+<!--    <string name="spion_kop_nm">SPION KOP</string>-->
+<!--    <string name="table_mountain_nm">TABLE MOUNTAIN</string>-->
+<!--    <string name="grouse_mountain_nm">GROUSE MOUNTAIN</string>-->
+<!--    <string name="cypress_bowl_nm">CYPRESS BOWL</string>-->
+<!--    <string name="silverstar_nm">SILVERSTAR</string>-->
+<!--    <string name="mount_olympus_nm">MOUNT OLYMPUS </string>-->
+<!--    <string name="big_white_nm">BIG WHITE</string>-->
+<!--    <string name="mount_st_helens_nm">MOUNT ST. HELENS</string>-->
+<!--    <string name="mount_fuji_nm">MOUNT FUJI</string>-->
+<!--    <string name="mount_kilimanjaro_nm">MOUNT KILIMANJARO</string>-->
+<!--    <string name="mount_everest_nm">MOUNT EVEREST</string>-->
 
     <string name="general_desc">Mountain display element.</string>
+    <string name="main_content_desc">Enter steps for the selected date.</string>
 
 </resources>

@@ -15,9 +15,12 @@ import java.util.Date;
 import java.util.List;
 
 import static dsemde.pyp_tracker.MainActivityFragment.daily_goal;
+import static dsemde.pyp_tracker.MainActivityFragment.goalMountainSteps;
+import static dsemde.pyp_tracker.MainActivityFragment.mountain_goal;
 import static dsemde.pyp_tracker.MainActivityFragment.mExampleList;
 import static dsemde.pyp_tracker.MainActivityFragment.sel_date;
 import static dsemde.pyp_tracker.MainActivityFragment.toInt;
+
 
 public class MainActivity extends FragmentActivity implements ViewPager.OnPageChangeListener {
 
@@ -44,14 +47,14 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
 
     {
         try {
-            startDateWeek1 = df.parse("4-JUL-2022");
-            endDateWeek1 = df.parse("10-JUL-2022");
-            startDateWeek2 = df.parse("11-JUL-2022");
-            endDateWeek2 = df.parse("17-JUL-2022");
-            startDateWeek3 = df.parse("18-JUL-2022");
-            endDateWeek3 = df.parse("24-JUL-2022");
-            startDateWeek4 = df.parse("25-JUL-2022");
-            endDateWeek4 = df.parse("1-AUG-2022");
+            startDateWeek1 = df.parse("6-MAY-2024");
+            endDateWeek1 = df.parse("12-MAY-2024");
+            startDateWeek2 = df.parse("13-MAY-2024");
+            endDateWeek2 = df.parse("19-MAY-2024");
+            startDateWeek3 = df.parse("20-MAY-2024");
+            endDateWeek3 = df.parse("26-MAY-2024");
+            startDateWeek4 = df.parse("27-MAY-2024");
+            endDateWeek4 = df.parse("3-JUN-2024");
 
         } catch (ParseException e) {
             e.printStackTrace();
@@ -97,7 +100,7 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
     TextView textMountEverest;
 
     ProgressBar pb;
-    ProgressBar summary_progress;
+    static ProgressBar summary_progress;
 
 
     @Override
@@ -129,7 +132,11 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
 
         setChallengeProgress();
 
-        setPeakVisibility();
+        // Set text for chosen mountain
+        TextView mountainView = (TextView) findViewById(R.id.pypMountain);
+        mountainView.setText(mountain_goal);
+
+        // setPeakVisibility();
 
         getChallengeTotal();
 
@@ -169,10 +176,10 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
                 weekFourTotal += item.getText2();
             }
         }
-        weekOneTotal = round(weekOneTotal/16, 1);
-        weekTwoTotal = round(weekTwoTotal/16, 1);
-        weekThreeTotal = round(weekThreeTotal/16, 1);
-        weekFourTotal = round(weekFourTotal/16, 1);
+        weekOneTotal = round(weekOneTotal/15, 1);
+        weekTwoTotal = round(weekTwoTotal/15, 1);
+        weekThreeTotal = round(weekThreeTotal/15, 1);
+        weekFourTotal = round(weekFourTotal/15, 1);
     }
 
     public void getWeeklyMeters(){
@@ -197,13 +204,13 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
             challenge_total += item.getText2();
         }
 
-        challenge_total = round(challenge_total/16, 1);
+        challenge_total = round(challenge_total/15, 1);
 
         challengeTotal.setText(challenge_total + " flights");
     }
 
-    public void setChallengeProgress(){
-        double mtEverest = 47189.28;
+    public static void setChallengeProgress(){
+        // double goalMountain = 44240;
         double currentProgress = 0;
         double relativeProgress;
 
@@ -211,102 +218,103 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
             currentProgress += item.getText2();
         }
 
-        relativeProgress = round((currentProgress/mtEverest)*100, 0);
+        relativeProgress = round((currentProgress/goalMountainSteps)*100, 0);
         summary_progress.setProgress((int) relativeProgress, true);
     }
 
     public double getChallengeProgress(){
-        double mtEverest = 47189.28;
+        // double goalMountain = 44240;
         double currentProgress = 0;
         double relativeProgress;
+
 
         for (ExampleItem item: mExampleList){
             currentProgress += item.getText2();
         }
 
-        relativeProgress = round((currentProgress/mtEverest)*100, 2);
+        relativeProgress = round((currentProgress/goalMountainSteps)*100, 2);
         return relativeProgress;
     }
 
-    public void setPeakVisibility() {
-        double progress = getChallengeProgress();
-
-
-        diamondHead.setVisibility(View.INVISIBLE);
-        burnabyMountain.setVisibility(View.INVISIBLE);
-        stawamusChief.setVisibility(View.INVISIBLE);
-        tableMountain.setVisibility(View.INVISIBLE);
-        grouseMountain.setVisibility(View.INVISIBLE);
-        cypressBowl.setVisibility(View.INVISIBLE);
-        mountOlympus.setVisibility(View.INVISIBLE);
-        mountStHelens.setVisibility(View.INVISIBLE);
-        mountFuji.setVisibility(View.INVISIBLE);
-        mountKilimanjaro.setVisibility(View.INVISIBLE);
-        mountEverest.setVisibility(View.INVISIBLE);
-
-        textDiamondHead.setVisibility(View.INVISIBLE);
-        textBurnabyMountain.setVisibility(View.INVISIBLE);
-        textStawamusChief.setVisibility(View.INVISIBLE);
-        textTableMountain.setVisibility(View.INVISIBLE);
-        textGrouseMountain.setVisibility(View.INVISIBLE);
-        textCypressBowl.setVisibility(View.INVISIBLE);
-        textMountOlympus.setVisibility(View.INVISIBLE);
-        textMountStHelens.setVisibility(View.INVISIBLE);
-        textMountFuji.setVisibility(View.INVISIBLE);
-        textMountKilimanjaro.setVisibility(View.INVISIBLE);
-        textMountEverest.setVisibility(View.INVISIBLE);
-
-        if (progress == 0.00){
-            startDot.setVisibility(View.INVISIBLE);
-        } else if (progress > 0.00 && progress < 2.62){
-            startDot.setVisibility(View.VISIBLE);
-        } else if (progress >= 2.62 && progress < 4.18 && progress < 100.00) {
-            startDot.setVisibility(View.VISIBLE);
-            diamondHead.setVisibility(View.VISIBLE);
-            textDiamondHead.setVisibility(View.VISIBLE);
-        } else if (progress >= 4.18 && progress < 7.91 && progress < 100.00) {
-            startDot.setVisibility(View.VISIBLE);
-            burnabyMountain.setVisibility(View.VISIBLE);
-            textBurnabyMountain.setVisibility(View.VISIBLE);
-        } else if (progress >= 7.91 && progress < 12.26 && progress < 100.00) {
-            startDot.setVisibility(View.VISIBLE);
-            stawamusChief.setVisibility(View.VISIBLE);
-            textStawamusChief.setVisibility(View.VISIBLE);
-        } else if (progress >= 12.26 && progress < 13.91 && progress < 100.00) {
-            startDot.setVisibility(View.VISIBLE);
-            tableMountain.setVisibility(View.VISIBLE);
-            textTableMountain.setVisibility(View.VISIBLE);
-        } else if (progress >= 13.91 && progress < 16.18 && progress < 100.00) {
-            startDot.setVisibility(View.VISIBLE);
-            grouseMountain.setVisibility(View.VISIBLE);
-            textGrouseMountain.setVisibility(View.VISIBLE);
-        } else if (progress >= 16.18 && progress < 22.04 && progress < 100.00) {
-            startDot.setVisibility(View.VISIBLE);
-            cypressBowl.setVisibility(View.VISIBLE);
-            textCypressBowl.setVisibility(View.VISIBLE);
-        } else if (progress >= 22.04 && progress < 28.82 && progress < 100.00) {
-            startDot.setVisibility(View.VISIBLE);
-            mountOlympus.setVisibility(View.VISIBLE);
-            textMountOlympus.setVisibility(View.VISIBLE);
-        } else if (progress >= 28.82 && progress < 42.68 && progress < 100.00) {
-            startDot.setVisibility(View.VISIBLE);
-            mountStHelens.setVisibility(View.VISIBLE);
-            textMountStHelens.setVisibility(View.VISIBLE);
-        } else if (progress >= 42.68 && progress < 66.62 && progress < 100.00) {
-            startDot.setVisibility(View.VISIBLE);
-            mountFuji.setVisibility(View.VISIBLE);
-            textMountFuji.setVisibility(View.VISIBLE);
-        } else if (progress >= 66.62 && progress < 100.00 && progress < 100.00) {
-            startDot.setVisibility(View.VISIBLE);
-            mountKilimanjaro.setVisibility(View.VISIBLE);
-            textMountKilimanjaro.setVisibility(View.VISIBLE);
-        } else if (progress >= 100.00){
-            startDot.setVisibility(View.VISIBLE);
-            mountEverest.setVisibility(View.VISIBLE);
-            textMountEverest.setVisibility(View.VISIBLE);
-        }
-
-    }
+//    public void setPeakVisibility() {
+//        double progress = getChallengeProgress();
+//
+//
+//        diamondHead.setVisibility(View.INVISIBLE);
+//        burnabyMountain.setVisibility(View.INVISIBLE);
+//        stawamusChief.setVisibility(View.INVISIBLE);
+//        tableMountain.setVisibility(View.INVISIBLE);
+//        grouseMountain.setVisibility(View.INVISIBLE);
+//        cypressBowl.setVisibility(View.INVISIBLE);
+//        mountOlympus.setVisibility(View.INVISIBLE);
+//        mountStHelens.setVisibility(View.INVISIBLE);
+//        mountFuji.setVisibility(View.INVISIBLE);
+//        mountKilimanjaro.setVisibility(View.INVISIBLE);
+//        mountEverest.setVisibility(View.INVISIBLE);
+//
+//        textDiamondHead.setVisibility(View.INVISIBLE);
+//        textBurnabyMountain.setVisibility(View.INVISIBLE);
+//        textStawamusChief.setVisibility(View.INVISIBLE);
+//        textTableMountain.setVisibility(View.INVISIBLE);
+//        textGrouseMountain.setVisibility(View.INVISIBLE);
+//        textCypressBowl.setVisibility(View.INVISIBLE);
+//        textMountOlympus.setVisibility(View.INVISIBLE);
+//        textMountStHelens.setVisibility(View.INVISIBLE);
+//        textMountFuji.setVisibility(View.INVISIBLE);
+//        textMountKilimanjaro.setVisibility(View.INVISIBLE);
+//        textMountEverest.setVisibility(View.INVISIBLE);
+//
+//        if (progress == 0.00){
+//            startDot.setVisibility(View.INVISIBLE);
+//        } else if (progress > 0.00 && progress < 2.62){
+//            startDot.setVisibility(View.VISIBLE);
+//        } else if (progress >= 2.62 && progress < 4.18 && progress < 100.00) {
+//            startDot.setVisibility(View.VISIBLE);
+//            diamondHead.setVisibility(View.VISIBLE);
+//            textDiamondHead.setVisibility(View.VISIBLE);
+//        } else if (progress >= 4.18 && progress < 7.91 && progress < 100.00) {
+//            startDot.setVisibility(View.VISIBLE);
+//            burnabyMountain.setVisibility(View.VISIBLE);
+//            textBurnabyMountain.setVisibility(View.VISIBLE);
+//        } else if (progress >= 7.91 && progress < 12.26 && progress < 100.00) {
+//            startDot.setVisibility(View.VISIBLE);
+//            stawamusChief.setVisibility(View.VISIBLE);
+//            textStawamusChief.setVisibility(View.VISIBLE);
+//        } else if (progress >= 12.26 && progress < 13.91 && progress < 100.00) {
+//            startDot.setVisibility(View.VISIBLE);
+//            tableMountain.setVisibility(View.VISIBLE);
+//            textTableMountain.setVisibility(View.VISIBLE);
+//        } else if (progress >= 13.91 && progress < 16.18 && progress < 100.00) {
+//            startDot.setVisibility(View.VISIBLE);
+//            grouseMountain.setVisibility(View.VISIBLE);
+//            textGrouseMountain.setVisibility(View.VISIBLE);
+//        } else if (progress >= 16.18 && progress < 22.04 && progress < 100.00) {
+//            startDot.setVisibility(View.VISIBLE);
+//            cypressBowl.setVisibility(View.VISIBLE);
+//            textCypressBowl.setVisibility(View.VISIBLE);
+//        } else if (progress >= 22.04 && progress < 28.82 && progress < 100.00) {
+//            startDot.setVisibility(View.VISIBLE);
+//            mountOlympus.setVisibility(View.VISIBLE);
+//            textMountOlympus.setVisibility(View.VISIBLE);
+//        } else if (progress >= 28.82 && progress < 42.68 && progress < 100.00) {
+//            startDot.setVisibility(View.VISIBLE);
+//            mountStHelens.setVisibility(View.VISIBLE);
+//            textMountStHelens.setVisibility(View.VISIBLE);
+//        } else if (progress >= 42.68 && progress < 66.62 && progress < 100.00) {
+//            startDot.setVisibility(View.VISIBLE);
+//            mountFuji.setVisibility(View.VISIBLE);
+//            textMountFuji.setVisibility(View.VISIBLE);
+//        } else if (progress >= 66.62 && progress < 100.00 && progress < 100.00) {
+//            startDot.setVisibility(View.VISIBLE);
+//            mountKilimanjaro.setVisibility(View.VISIBLE);
+//            textMountKilimanjaro.setVisibility(View.VISIBLE);
+//        } else if (progress >= 100.00){
+//            startDot.setVisibility(View.VISIBLE);
+//            mountEverest.setVisibility(View.VISIBLE);
+//            textMountEverest.setVisibility(View.VISIBLE);
+//        }
+//
+//    }
 
     public void setDailyGoal(){
         dailyGoal.setText("Personal goal: " + daily_goal + " flights per day");
@@ -321,7 +329,7 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
                 if (date.compareTo(steps.get(a).getText1()) == 0)
                     temp_progress += steps.get(a).getText2();
             }
-            flight_total = round(temp_progress / 16.0, 2);
+            flight_total = round(temp_progress / 15.0, 2);
             daily_progress_int = toInt((flight_total/daily_goal)*100);
             return daily_progress_int;
         } catch (Exception e){
@@ -350,29 +358,29 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
         weekFourMetersView.setText(String.valueOf(weekFourMeters));
 
         startDot = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.startDot);
-        diamondHead = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.diamondHead);
-        burnabyMountain = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.burnabyMountain);
-        stawamusChief = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.stawamusChief);
-        tableMountain = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.tableMountain);
-        grouseMountain = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.grouseMountain);
-        cypressBowl = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.cypressBowl);
-        mountOlympus = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.mountOlympus);
-        mountStHelens = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.mountStHelens);
-        mountFuji = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.mountFuji);
-        mountKilimanjaro = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.mountKilimanjaro);
-        mountEverest = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.mountEverest);
+//        diamondHead = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.diamondHead);
+//        burnabyMountain = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.burnabyMountain);
+//        stawamusChief = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.stawamusChief);
+//        tableMountain = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.tableMountain);
+//        grouseMountain = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.grouseMountain);
+//        cypressBowl = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.cypressBowl);
+//        mountOlympus = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.mountOlympus);
+//        mountStHelens = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.mountStHelens);
+//        mountFuji = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.mountFuji);
+//        mountKilimanjaro = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.mountKilimanjaro);
+//        mountEverest = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.mountEverest);
 
-        textDiamondHead = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.textDiamondHead);
-        textBurnabyMountain = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.textBurnabyMountain);
-        textStawamusChief = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.textStawamusChief);
-        textTableMountain = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.textTableMountain);
-        textGrouseMountain = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.textGrouseMountain);
-        textCypressBowl = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.textCypressBowl);
-        textMountOlympus = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.textMountOlympus);
-        textMountStHelens = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.textMountStHelens);
-        textMountFuji = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.textMountFuji);
-        textMountKilimanjaro = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.textMountKilimanjaro);
-        textMountEverest = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.textMountEverest);
+//        textDiamondHead = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.textDiamondHead);
+//        textBurnabyMountain = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.textBurnabyMountain);
+//        textStawamusChief = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.textStawamusChief);
+//        textTableMountain = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.textTableMountain);
+//        textGrouseMountain = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.textGrouseMountain);
+//        textCypressBowl = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.textCypressBowl);
+//        textMountOlympus = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.textMountOlympus);
+//        textMountStHelens = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.textMountStHelens);
+//        textMountFuji = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.textMountFuji);
+//        textMountKilimanjaro = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.textMountKilimanjaro);
+//        textMountEverest = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.textMountEverest);
 
         challengeTotal = SummaryActivityFragment.SummaryFragmentView.findViewById(R.id.challengeTotal);
 
